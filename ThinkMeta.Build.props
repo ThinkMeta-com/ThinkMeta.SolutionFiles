@@ -11,14 +11,25 @@
     
     <!-- Paths -->
     <PropertyGroup>
-        <BaseOutputPath>$(SolutionDir)build\$(Configuration)\bin\</BaseOutputPath>
-        <OutputPath>$(SolutionDir)build\$(Configuration)\bin\</OutputPath>
-        <BaseIntermediateOutputPath>$(SolutionDir)build\$(Configuration)\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
-        <IntermediateOutputPath>$(SolutionDir)build\$(Configuration)\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
+        <TM_BuildPath>$(SolutionDir)build\</TM_BuildPath>
+        <BaseOutputPath>$(TM_BuildPath)$(Configuration)\bin\</BaseOutputPath>
+        <OutputPath>$(TM_BuildPath)$(Configuration)\bin\</OutputPath>
+        <BaseIntermediateOutputPath>$(TM_BuildPath)$(Configuration)\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+        <IntermediateOutputPath>$(TM_BuildPath)$(Configuration)\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
 
         <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
     </PropertyGroup>
 
+    <!-- Packaging -->
+    <PropertyGroup>
+        <Authors Condition="'$(Authors)' == ''">ThinkMeta Software GmbH</Authors>
+        <Company Condition="'$(Company)' == ''">ThinkMeta Software GmbH</Company>
+        <RepositoryType Condition="'$(RepositoryType)' == ''">git</RepositoryType>
+        <PackageOutputPath Condition="'$(PackageOutputPath)' == ''">$(TM_BuildPath)publish\</PackageOutputPath>
+        <IncludeSymbols Condition="'$(IncludeSymbols)' == ''">True</IncludeSymbols>
+        <SymbolPackageFormat Condition="'$(SymbolPackageFormat)' == ''">snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    
     <!-- Global build settings -->
     <PropertyGroup>
         <Nullable Condition="'$(Nullable)' == ''">enable</Nullable>
