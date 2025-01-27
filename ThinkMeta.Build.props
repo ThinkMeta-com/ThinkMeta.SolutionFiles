@@ -1,0 +1,44 @@
+<Project InitialTargets="CopyFilesToRoot">
+    <ItemGroup>
+        <EditorConfigFile Include="$(SolutionDir)ThinkMeta.SolutionFiles\.editorconfig" />
+    </ItemGroup>
+
+    <Target Name="CopyFilesToRoot">
+        <Copy SourceFiles="@(EditorConfigFile)" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
+    </Target>
+
+    <Import Project="$(SolutionDir)ThinkMeta.SolutionFiles/ThinkMeta.CsWarnings.props"/>
+    
+    <!-- Paths -->
+    <PropertyGroup>
+        <BaseOutputPath>$(SolutionDir)build\$(Configuration)\bin\</BaseOutputPath>
+        <OutputPath>$(SolutionDir)build\$(Configuration)\bin\</OutputPath>
+        <BaseIntermediateOutputPath>$(SolutionDir)build\$(Configuration)\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+        <IntermediateOutputPath>$(SolutionDir)build\$(Configuration)\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
+
+        <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
+    </PropertyGroup>
+
+    <!-- Global build settings -->
+    <PropertyGroup>
+        <Nullable Condition="'$(Nullable)' == ''">enable</Nullable>
+        <ImplicitUsings Condition="'$(ImplicitUsings)' == ''">true</ImplicitUsings>
+        <GenerateAssemblyInfo Condition="'$(GenerateAssemblyInfo)' == ''">false</GenerateAssemblyInfo>
+        <GenerateTargetFrameworkAttribute Condition="'$(GenerateTargetFrameworkAttribute)' == ''">false</GenerateTargetFrameworkAttribute>
+        <GenerateDocumentationFile Condition="'$(GenerateDocumentationFile)' == ''">true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <!-- Analyzers -->
+    <PropertyGroup Condition="'$(TM_NoAnalyzers)' != 'True'">
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    </PropertyGroup>
+
+    <!-- Static code analyzers -->
+    <ItemGroup Condition="'$(TM_NoAnalyzers)' != 'True'">
+        <PackageReference Include="SonarAnalyzer.CSharp">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+</Project>
