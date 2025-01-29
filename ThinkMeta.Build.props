@@ -3,11 +3,19 @@
         <EditorConfigFile Include="$(SolutionDir)ThinkMeta.SolutionFiles\.editorconfig" />
     </ItemGroup>
 
+    <!-- Copy .editorconfig to solution's directory -->
     <Target Name="CopyFilesToRoot">
         <Copy SourceFiles="@(EditorConfigFile)" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
     </Target>
 
+    <!-- Import solution-specific .props files -->
+    <Import Condition="Exists('$(SolutionDir)SolutionFiles/$(SolutionName).props')" Project="$(SolutionDir)SolutionFiles/$(SolutionName).props"/>
+
     <Import Project="$(SolutionDir)ThinkMeta.SolutionFiles/ThinkMeta.CsWarnings.props"/>
+
+    <PropertyGroup>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">net9.0</TargetFramework>
+    </PropertyGroup>
     
     <!-- Paths -->
     <PropertyGroup>
