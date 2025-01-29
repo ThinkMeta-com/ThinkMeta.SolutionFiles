@@ -21,12 +21,13 @@
         <PackageVersion Include="Microsoft.JSInterop" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
         <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="172.52.0" />
+        <PackageVersion Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
         <PackageVersion Include="MSTest.TestAdapter" Version="3.7.2" />
         <PackageVersion Include="MSTest.TestFramework" Version="3.7.2" />
         <PackageVersion Include="NLog.Web.AspNetCore" Version="5.3.15" />
         <PackageVersion Include="NSubstitute" Version="5.3.0" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.7.0" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.5.0.109200" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.6.0.109712" />
         <PackageVersion Include="System.Data.Odbc" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.DirectoryServices" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.DirectoryServices.AccountManagement" Version="$(TM_DotNetVersion)" />
