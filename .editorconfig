@@ -96,11 +96,11 @@ csharp_style_var_when_type_is_apparent = true
 
 # Expression-bodied members
 csharp_style_expression_bodied_accessors = true
-csharp_style_expression_bodied_constructors = true
+csharp_style_expression_bodied_constructors = when_on_single_line
 csharp_style_expression_bodied_indexers = true
 csharp_style_expression_bodied_lambdas = true
 csharp_style_expression_bodied_local_functions = false
-csharp_style_expression_bodied_methods = true
+csharp_style_expression_bodied_methods = when_on_single_line
 csharp_style_expression_bodied_operators = true
 csharp_style_expression_bodied_properties = true
 
@@ -294,9 +294,10 @@ dotnet_naming_style.begins_with_underscore.capitalization = camel_case
 # diagnostics
 dotnet_analyzer_diagnostic.category-Style.severity = error
 
+# IDE0021: Use expression body for constructor
+dotnet_diagnostic.IDE0021.severity = suggestion
 # IDE0022: Use expression body for method
-csharp_style_expression_bodied_methods = when_on_single_line
-
+dotnet_diagnostic.IDE0022.severity = suggestion
 # IDE0072: Add missing cases
 dotnet_diagnostic.IDE0072.severity = none
 

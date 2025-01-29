@@ -60,4 +60,23 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
+
+    <!-- Test project -->
+    <PropertyGroup Condition="'$(TM_IsTestProject)' == 'True'">
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <GenerateTargetFrameworkAttribute>true</GenerateTargetFrameworkAttribute>
+    </PropertyGroup>
+
+    <!-- Test project references -->
+    <ItemGroup Condition="'$(TM_IsTestProject)' == 'True'">
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="MSTest.TestAdapter" />
+        <PackageReference Include="MSTest.TestFramework" />
+        <PackageReference Include="NSubstitute" />
+        <PackageReference Include="coverlet.collector">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 </Project>
