@@ -1,8 +1,11 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <TM_DotNetVersion>9.0.1</TM_DotNetVersion>
+        <TM_DotNetVersion>9.0.2</TM_DotNetVersion>
     </PropertyGroup>
+
+    <!-- Import solution-specific Packages.props files -->
+    <Import Condition="Exists('$(SolutionDir)SolutionFiles/$(SolutionName).Packages.props')" Project="$(SolutionDir)SolutionFiles/$(SolutionName).Packages.props"/>
 
     <ItemGroup>
         <!-- MIT license -->
@@ -20,9 +23,10 @@
         <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.JSInterop" Version="$(TM_DotNetVersion)" />
-        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-        <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="172.52.0" />
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+        <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="172.61.0" />
         <PackageVersion Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+        <PackageVersion Include="MSTest" Version="3.7.3" />
         <PackageVersion Include="MSTest.TestAdapter" Version="3.7.3" />
         <PackageVersion Include="MSTest.TestFramework" Version="3.7.3" />
         <PackageVersion Include="System.Data.Odbc" Version="$(TM_DotNetVersion)" />
@@ -32,9 +36,9 @@
         <PackageVersion Include="System.ServiceModel.Primitives" Version="8.1.1" />
         
         <!-- BSD-3-Clause -->
-        <PackageVersion Include="NLog.Web.AspNetCore" Version="5.3.15" />
+        <PackageVersion Include="NLog.Web.AspNetCore" Version="5.4.0" />
         <PackageVersion Include="NSubstitute" Version="5.3.0" />
-        
+
         <!-- Custom license -->
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.7.0" />
         <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.6.0.109712" />
