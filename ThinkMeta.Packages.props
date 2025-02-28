@@ -13,7 +13,7 @@
         <PackageVersion Include="coverlet.collector" Version="6.0.4" />
         <PackageVersion Include="DocumentFormat.OpenXml" Version="3.2.0" />
         <PackageVersion Include="FluentFTP" Version="52.0.0" />
-        <PackageVersion Include="HtmlAgilityPack" Version="1.11.72" />
+        <PackageVersion Include="HtmlAgilityPack" Version="1.11.74" />
         <PackageVersion Include="Microsoft.AspNetCore.Components" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="$(TM_DotNetVersion)" />
@@ -42,6 +42,6 @@
 
         <!-- Custom license -->
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.7.0" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.6.0.109712" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.7.0.110445" />
     </ItemGroup>
 </Project>
