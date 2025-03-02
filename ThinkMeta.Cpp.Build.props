@@ -1,0 +1,18 @@
+<Project InitialTargets="CopyFilesToRoot">
+    <ItemGroup>
+        <ClangFormatFile Include="$(SolutionDir)ThinkMeta.SolutionFiles\.clang-format" />
+    </ItemGroup>
+
+    <!-- Copy .clang-format to solution's directory -->
+    <Target Name="CopyFilesToRoot">
+        <Copy SourceFiles="@(ClangFormatFile)" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
+    </Target>
+
+    <PropertyGroup>
+        <ForceImportAfterCppDefaultProps>$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.ForceImportAfterCppDefaultProps.props</ForceImportAfterCppDefaultProps>
+        <ForceImportBeforeCppProps>$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.ForceImportBeforeCppProps.props</ForceImportBeforeCppProps>
+        <ForceImportAfterCppProps>$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.ForceImportAfterCppProps.props</ForceImportAfterCppProps>
+        <ForceImportBeforeCppTargets>$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.ForceImportBeforeCppTargets.targets</ForceImportBeforeCppTargets>
+        <ForceImportAfterCppTargets>$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.ForceImportAfterCppTargets.targets</ForceImportAfterCppTargets>
+    </PropertyGroup>
+</Project>
