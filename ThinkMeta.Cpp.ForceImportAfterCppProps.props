@@ -1,2 +1,51 @@
-<Project>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <OutDir>$(SolutionDir)build\$(Configuration)\bin\</OutDir>
+        <IntDir>$(SolutionDir)build\$(Configuration)\obj\$(MSBuildProjectName)\</IntDir>
+    </PropertyGroup>
+    <ImportGroup Label="ExtensionSettings">
+    </ImportGroup>
+    <ImportGroup Label="Shared">
+    </ImportGroup>
+    <ImportGroup Label="PropertySheets">
+        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    </ImportGroup>
+    <PropertyGroup Label="UserMacros" />
+    <ItemDefinitionGroup>
+        <BuildLog>
+            <Path>$(IntDir)$(MSBuildProjectName).log</Path>
+        </BuildLog>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup>
+        <ClCompile>
+            <WarningLevel>Level4</WarningLevel>
+            <SDLCheck>false</SDLCheck>
+            <ConformanceMode>true</ConformanceMode>
+            <LanguageStandard>stdcpplatest</LanguageStandard>
+            <LanguageStandard_C>stdc17</LanguageStandard_C>
+            <PreprocessorDefinitions>WIN32;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+            <TreatWarningAsError>true</TreatWarningAsError>
+            <MultiProcessorCompilation>true</MultiProcessorCompilation>
+        </ClCompile>
+        <Link>
+            <SubSystem>Console</SubSystem>
+            <GenerateDebugInformation>true</GenerateDebugInformation>
+        </Link>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+        <ClCompile>
+            <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        </ClCompile>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+        <ClCompile>
+            <FunctionLevelLinking>true</FunctionLevelLinking>
+            <IntrinsicFunctions>true</IntrinsicFunctions>
+            <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        </ClCompile>
+        <Link>
+            <EnableCOMDATFolding>true</EnableCOMDATFolding>
+            <OptimizeReferences>true</OptimizeReferences>
+        </Link>
+    </ItemDefinitionGroup>
 </Project>
