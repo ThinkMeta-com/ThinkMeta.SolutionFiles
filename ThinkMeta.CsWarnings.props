@@ -11,6 +11,10 @@
         <TM_SonarLintNoWarn>
             S125;S1075;S1135;S1244;S2376;S3904
         </TM_SonarLintNoWarn>
+
+        <TM_NoWarnForced>
+            BL0007
+        </TM_NoWarnForced>
     </PropertyGroup>
 
     <PropertyGroup>
