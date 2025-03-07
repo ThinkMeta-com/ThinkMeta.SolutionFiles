@@ -34,7 +34,7 @@
         <PackageVersion Include="System.DirectoryServices" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.DirectoryServices.AccountManagement" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Security.Cryptography.Xml" Version="$(TM_DotNetVersion)" />
-        <PackageVersion Include="System.ServiceModel.Primitives" Version="8.1.1" />
+        <PackageVersion Include="System.ServiceModel.Primitives" Version="8.1.2" />
         
         <!-- BSD-3-Clause -->
         <PackageVersion Include="NLog.Web.AspNetCore" Version="5.4.0" />
