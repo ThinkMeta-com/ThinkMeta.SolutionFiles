@@ -1,0 +1,82 @@
+<Project InitialTargets="CopyFilesToRoot">
+    <ItemGroup>
+        <EditorConfigFile Include="$(SolutionDir)ThinkMeta.SolutionFiles\.editorconfig" />
+    </ItemGroup>
+
+    <!-- Copy .editorconfig to solution's directory -->
+    <Target Name="CopyFilesToRoot">
+        <Copy SourceFiles="@(EditorConfigFile)" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
+    </Target>
+
+    <!-- Import solution-specific .props files -->
+    <Import Condition="Exists('$(SolutionDir)SolutionFiles/$(SolutionName).Net.props')" Project="$(SolutionDir)SolutionFiles/$(SolutionName).Net.props"/>
+
+    <Import Project="$(SolutionDir)ThinkMeta.SolutionFiles/ThinkMeta.CsWarnings.props"/>
+
+    <PropertyGroup>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">net9.0</TargetFramework>
+    </PropertyGroup>
+    
+    <!-- Paths -->
+    <PropertyGroup>
+        <TM_BuildPath>$(SolutionDir)build\</TM_BuildPath>
+        <BaseOutputPath>$(TM_BuildPath)$(Configuration)\bin\</BaseOutputPath>
+        <OutputPath>$(TM_BuildPath)$(Configuration)\bin\</OutputPath>
+        <BaseIntermediateOutputPath>$(TM_BuildPath)$(Configuration)\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+        <IntermediateOutputPath>$(TM_BuildPath)$(Configuration)\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
+
+        <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
+    </PropertyGroup>
+
+    <!-- Packaging -->
+    <PropertyGroup>
+        <Authors Condition="'$(Authors)' == ''">ThinkMeta Software GmbH</Authors>
+        <Company Condition="'$(Company)' == ''">ThinkMeta Software GmbH</Company>
+        <RepositoryType Condition="'$(RepositoryType)' == ''">git</RepositoryType>
+        <PackageOutputPath Condition="'$(PackageOutputPath)' == ''">$(TM_BuildPath)publish\</PackageOutputPath>
+        <IncludeSymbols Condition="'$(IncludeSymbols)' == ''">True</IncludeSymbols>
+        <SymbolPackageFormat Condition="'$(SymbolPackageFormat)' == ''">snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    
+    <!-- Global build settings -->
+    <PropertyGroup>
+        <Nullable Condition="'$(Nullable)' == ''">enable</Nullable>
+        <ImplicitUsings Condition="'$(ImplicitUsings)' == ''">true</ImplicitUsings>
+        <GenerateAssemblyInfo Condition="'$(GenerateAssemblyInfo)' == ''">false</GenerateAssemblyInfo>
+        <GenerateTargetFrameworkAttribute Condition="'$(GenerateTargetFrameworkAttribute)' == ''">false</GenerateTargetFrameworkAttribute>
+        <GenerateDocumentationFile Condition="'$(GenerateDocumentationFile)' == ''">true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <!-- Analyzers -->
+    <PropertyGroup Condition="'$(TM_NoAnalyzers)' != 'True'">
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    </PropertyGroup>
+
+    <!-- Static code analyzers -->
+    <ItemGroup Condition="'$(TM_NoAnalyzers)' != 'True'">
+        <PackageReference Include="SonarAnalyzer.CSharp">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <!-- Test project -->
+    <PropertyGroup Condition="'$(TM_IsTestProject)' == 'True'">
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <GenerateTargetFrameworkAttribute>true</GenerateTargetFrameworkAttribute>
+    </PropertyGroup>
+
+    <!-- Test project references -->
+    <ItemGroup Condition="'$(TM_IsTestProject)' == 'True'">
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="MSTest.TestAdapter" />
+        <PackageReference Include="MSTest.TestFramework" />
+        <PackageReference Include="NSubstitute" />
+        <PackageReference Include="coverlet.collector">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+</Project>
