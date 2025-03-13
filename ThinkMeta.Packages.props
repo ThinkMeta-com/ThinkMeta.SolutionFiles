@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <TM_DotNetVersion>9.0.2</TM_DotNetVersion>
+        <TM_DotNetVersion>9.0.3</TM_DotNetVersion>
         <TM_MsTestVersion>3.8.0</TM_MsTestVersion>
     </PropertyGroup>
 
@@ -11,8 +11,8 @@
     <ItemGroup>
         <!-- MIT license -->
         <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-        <PackageVersion Include="DocumentFormat.OpenXml" Version="3.2.0" />
-        <PackageVersion Include="FluentFTP" Version="52.0.0" />
+        <PackageVersion Include="DocumentFormat.OpenXml" Version="3.3.0" />
+        <PackageVersion Include="FluentFTP" Version="52.1.0" />
         <PackageVersion Include="HtmlAgilityPack" Version="1.11.72" />
         <PackageVersion Include="Microsoft.AspNetCore.Components" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="$(TM_DotNetVersion)" />
