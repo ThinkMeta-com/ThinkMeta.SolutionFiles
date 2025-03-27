@@ -8,7 +8,7 @@
         <Copy SourceFiles="@(ClangFormatFile)" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
     </Target>
 
-    <PropertyGroup>
+    <PropertyGroup Condition="'$(TM_DisableBuildHooks)' != 'True'">
         <ForceImportAfterCppDefaultProps>$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.ForceImportAfterCppDefaultProps.props</ForceImportAfterCppDefaultProps>
         <ForceImportBeforeCppProps>$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.ForceImportBeforeCppProps.props</ForceImportBeforeCppProps>
         <ForceImportAfterCppProps>$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.ForceImportAfterCppProps.props</ForceImportAfterCppProps>
