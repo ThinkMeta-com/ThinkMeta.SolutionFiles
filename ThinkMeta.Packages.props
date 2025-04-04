@@ -41,7 +41,7 @@
         <PackageVersion Include="NSubstitute" Version="5.3.0" />
 
         <!-- Custom license -->
-        <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.7.0" />
+        <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.8.0" />
         <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.7.0.110445" />
     </ItemGroup>
 </Project>
