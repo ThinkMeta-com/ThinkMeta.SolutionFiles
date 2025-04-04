@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
         <TM_DotNetVersion>9.0.3</TM_DotNetVersion>
-        <TM_MsTestVersion>3.8.2</TM_MsTestVersion>
+        <TM_MsTestVersion>3.8.3</TM_MsTestVersion>
     </PropertyGroup>
 
     <!-- Import solution-specific Packages.props files -->
@@ -31,11 +31,12 @@
         <PackageVersion Include="MSTest.TestAdapter" Version="$(TM_MsTestVersion)" />
         <PackageVersion Include="MSTest.TestFramework" Version="$(TM_MsTestVersion)" />
         <PackageVersion Include="System.Data.Odbc" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="System.Data.OleDb" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.DirectoryServices" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.DirectoryServices.AccountManagement" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Security.Cryptography.Xml" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.ServiceModel.Primitives" Version="8.1.2" />
-        
+
         <!-- BSD-3-Clause -->
         <PackageVersion Include="NLog.Web.AspNetCore" Version="5.4.0" />
         <PackageVersion Include="NSubstitute" Version="5.3.0" />
