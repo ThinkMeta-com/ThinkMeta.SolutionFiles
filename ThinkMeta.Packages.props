@@ -43,6 +43,6 @@
 
         <!-- Custom license -->
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.8.0" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.7.0.110445" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.8.0.113526" />
     </ItemGroup>
 </Project>
