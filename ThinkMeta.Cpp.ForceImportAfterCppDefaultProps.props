@@ -1,6 +1,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup Label="Configuration">
-        <ConfigurationType>Application</ConfigurationType>
+        <ConfigurationType Condition="'$(ConfigurationType)' == ''">Application</ConfigurationType>
         <PlatformToolset>v143</PlatformToolset>
         <CharacterSet>Unicode</CharacterSet>
     </PropertyGroup>
