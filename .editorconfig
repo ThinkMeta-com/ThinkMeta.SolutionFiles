@@ -298,6 +298,8 @@ dotnet_analyzer_diagnostic.category-Style.severity = error
 dotnet_diagnostic.IDE0021.severity = suggestion
 # IDE0022: Use expression body for method
 dotnet_diagnostic.IDE0022.severity = suggestion
+# IDE0045: Use conditional expression for assignment
+dotnet_diagnostic.IDE0045.severity = suggestion
 # IDE0046: Convert to conditional expression
 dotnet_diagnostic.IDE0046.severity = none
 # IDE0072: Add missing cases
