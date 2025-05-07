@@ -19,7 +19,7 @@
     
     <!-- Paths -->
     <PropertyGroup>
-        <TM_BuildPath>$(SolutionDir)build\</TM_BuildPath>
+        <TM_BuildPath Condition="'$(TM_BuildPath)' == ''">$(SolutionDir)build\</TM_BuildPath>
         <BaseOutputPath>$(TM_BuildPath)$(Configuration)\bin\</BaseOutputPath>
         <OutputPath>$(TM_BuildPath)$(Configuration)\bin\</OutputPath>
         <BaseIntermediateOutputPath>$(TM_BuildPath)$(Configuration)\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
