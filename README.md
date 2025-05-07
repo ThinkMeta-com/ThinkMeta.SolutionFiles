@@ -79,7 +79,7 @@ The configuration files are copied to `\$(SolutionDir)` when the build is starte
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{0218a0a5-a969-44de-879b-49d831137261}</ProjectGuid>
-    <RootNamespace>Episode01</RootNamespace>
+    <RootNamespace>MyProject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
