@@ -1,8 +1,8 @@
 # ThinkMeta.SolutionFiles
 
-This repository contains the build files that are used across all Visual Studio projects by ThinkMeta.
+This repository contains build files that are used across all Visual Studio projects by ThinkMeta.
 
-While it's not intended to be used by other projects, feel free to copy the repo and modify the files to your own needs.
+While it is not intended for use in other projects, you are welcome to copy the repository and modify the files to suit your needs.
 
 # Installation
 
@@ -12,7 +12,7 @@ Clone the repo as a submodule in the root directory of the Visual Studio solutio
 
 ## For C# and C++ projects:
 
-Create the "Directory.Build.props" file in the root directory with the following content:
+Create a "Directory.Build.props" file in the root directory with the following content:
 
 ```xml
 <Project>
@@ -20,11 +20,11 @@ Create the "Directory.Build.props" file in the root directory with the following
 </Project>
 ```
 
-Currently, a "Directory.Build.targets" file is not needed.
+Currently, a "Directory.Build.targets" file is not required.
 
 ## Central nuget package version management (C# only):
 
-Create the "Directory.Packages.props" file in the root directory with the following content:
+Create a "Directory.Packages.props" file in the root directory with the following content:
 
 ```xml
 <Project>
@@ -36,7 +36,7 @@ Create the "Directory.Packages.props" file in the root directory with the follow
 
 ## C++
 
-Support for a solution-specific .props file is not implemented yet.
+Support for a solution-specific .props file is not yet implemented.
 
 You can use the following properties to customize the build:
 
@@ -48,18 +48,18 @@ You can use the following properties to customize the build:
 
 Custom properties can be defined in `\$(SolutionDir)SolutionFiles/\$(SolutionName).Net.props`.
 
-You can use the following properties to customize the build:
+You can use the following properties to customize the build (either in the above .props file or in a .csproj file):
 
 |Property|Description|
 |---|---|
-|<i>Any MSBuild property</i>|If an MSBuild property is defined, it will not be overwritten by the later .props files (except where required).|
+|<i>Any MSBuild property</i>|If an MSBuild property is defined, it will not be overwritten by later .props files (except where required).|
 |`TM_BuildPath`|Sets the build path.<br>The output, intermediate and publish path will be set inside this folder.|
 |`TM_NoAnalyzers`|Disables code analysis for the project.|
 |`TM_IsTestProject`|If set to `true`, the required properties and package references for test projects will be included.
 
 # Text Editor configuration files
 
-The configuration files are copied to `\$(SolutionDir)` when the build is started. You should add the copied files to the ignore file of your VCS (`.gitignore` for git).
+The configuration files are copied to `\$(SolutionDir)` when the build is started. You should add these copied files to your VCS ignore list (`.gitignore` for Git).
 
 * C++: `.clang-format`
 * C#: `.editorconfig`
@@ -95,9 +95,13 @@ The configuration files are copied to `\$(SolutionDir)` when the build is starte
 
 ### Static library
 
-As above, with one additional import:
+As above, with few modifications:
 
 ```xml
+  ...
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
   ...
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
