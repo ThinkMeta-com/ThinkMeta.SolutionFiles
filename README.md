@@ -6,7 +6,7 @@ While it is not intended for use in other projects, you are welcome to copy the 
 
 # Installation
 
-Clone the repo as a submodule in the root directory of the Visual Studio solution. The files will be placed in the `\$(SolutionDir)ThinkMeta.SolutionFiles` folder.
+Clone the repo as a submodule in the root directory of the Visual Studio solution. The files will be placed in the `$(SolutionDir)ThinkMeta.SolutionFiles` folder.
 
 # Activation
 
@@ -46,7 +46,7 @@ You can use the following properties to customize the build:
 
 ## C#
 
-Custom properties can be defined in `\$(SolutionDir)SolutionFiles/\$(SolutionName).Net.props`.
+Custom properties can be defined in `$(SolutionDir)SolutionFiles/$(SolutionName).Net.props`.
 
 You can use the following properties to customize the build (either in the above .props file or in a .csproj file):
 
@@ -59,7 +59,7 @@ You can use the following properties to customize the build (either in the above
 
 # Text Editor configuration files
 
-The configuration files are copied to `\$(SolutionDir)` when the build is started. You should add these copied files to your VCS ignore list (`.gitignore` for Git).
+The configuration files are copied to `$(SolutionDir)` when the build is started. You should add these copied files to your VCS ignore list (`.gitignore` for Git).
 
 * C++: `.clang-format`
 * C#: `.editorconfig`
