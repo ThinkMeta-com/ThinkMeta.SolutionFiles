@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <TM_DotNetVersion>9.0.6</TM_DotNetVersion>
+        <TM_DotNetVersion>9.0.7</TM_DotNetVersion>
         <TM_MsTestVersion>3.9.3</TM_MsTestVersion>
     </PropertyGroup>
 
