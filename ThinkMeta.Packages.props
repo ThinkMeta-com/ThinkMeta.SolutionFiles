@@ -12,7 +12,7 @@
         <!-- MIT license -->
         <PackageVersion Include="coverlet.collector" Version="6.0.4" />
         <PackageVersion Include="DocumentFormat.OpenXml" Version="3.3.0" />
-        <PackageVersion Include="FluentFTP" Version="52.1.0" />
+        <PackageVersion Include="FluentFTP" Version="53.0.1" />
         <PackageVersion Include="HtmlAgilityPack" Version="1.12.2" />
         <PackageVersion Include="Microsoft.AspNetCore.Components" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="$(TM_DotNetVersion)" />
@@ -47,7 +47,7 @@
         <PackageVersion Include="BarcodeLib" Version="3.1.5" />
         
         <!-- Custom license -->
-        <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.9.0" />
+        <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.9.1" />
         <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.14.0.120626" />
     </ItemGroup>
 </Project>
