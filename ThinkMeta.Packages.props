@@ -18,6 +18,13 @@
         <PackageVersion Include="Microsoft.AspNetCore.Components" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="Microsoft.CodeAnalysis" Version="5.0.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.2" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" Version="1.1.2" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing" Version="1.1.2" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.0.0" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(TM_DotNetVersion)" />
@@ -41,11 +48,11 @@
         <PackageVersion Include="System.DirectoryServices.AccountManagement" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Drawing.Common" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Security.Cryptography.Xml" Version="$(TM_DotNetVersion)" />
-        <PackageVersion Include="System.ServiceModel.Primitives" Version="8.1.2" />
         <PackageVersion Include="System.Text.Json" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="ThinkMeta.CodeAnalysis.CSharp" Version="1.0.4" />
 
         <!-- BSD-3-Clause -->
-        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.0.6" />
+        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.1.0" />
         <PackageVersion Include="NSubstitute" Version="5.3.0" />
 
         <!-- Apache-2.0 -->
@@ -55,6 +62,6 @@
         <!-- Custom license -->
         <PackageVersion Include="Microsoft.VisualStudio.Extensibility.Contracts" Version="17.14.2098" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.9.1" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.15.0.120848" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.16.0.128591" />
     </ItemGroup>
 </Project>
