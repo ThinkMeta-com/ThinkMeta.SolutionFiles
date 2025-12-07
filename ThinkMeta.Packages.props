@@ -34,6 +34,7 @@
         <PackageVersion Include="Microsoft.JSInterop" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
         <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="180.10.0" />
+        <PackageVersion Include="Microsoft.VisualStudio.SDK" Version="17.0.32112.339" />
         <PackageVersion Include="Microsoft.VSSDK.BuildTools" Version="17.14.2120" />
         <PackageVersion Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
         <PackageVersion Include="MSTest" Version="$(TM_MsTestVersion)" />
@@ -59,6 +60,7 @@
         <PackageVersion Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.14" />
 
         <!-- Custom license -->
+        <PackageVersion Include="Microsoft.VisualStudio.Extensibility.Contracts" Version="17.14.2098" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.9.1" />
         <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.16.1.129956" />
     </ItemGroup>
