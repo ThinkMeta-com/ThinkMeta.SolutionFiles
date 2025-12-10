@@ -7,9 +7,10 @@
             S1244       Floating point numbers should not be tested for equality
             S2376       Write-only properties should not be used
             S3904       Provide an 'AssemblyVersion' attribute for assembly 'assembly'
+            S4275       Getters and setters should access the expected fields
         -->
         <TM_SonarLintNoWarn>
-            S125;S1075;S1135;S1244;S2376;S3904
+            S125;S1075;S1135;S1244;S2376;S3904;S4275
         </TM_SonarLintNoWarn>
 
         <TM_NoWarnForced>
@@ -19,7 +20,7 @@
 
     <PropertyGroup>
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>$(TM_NoWarnForced);$(TM_SonarLintNoWarn);%(NoWarn)</NoWarn>
+        <NoWarn>$(TM_NoWarnForced);$(TM_SonarLintNoWarn);$(NoWarn)</NoWarn>
         <WarningsNotAsErrors>$(TM_WarningsNotAsErrorsForced);$(TM_WarningsNotAsErrors);$(TM_SonarLintNoError)</WarningsNotAsErrors>
     </PropertyGroup>
 </Project>

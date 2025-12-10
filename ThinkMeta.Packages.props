@@ -1,8 +1,8 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <TM_DotNetVersion>10.0.0</TM_DotNetVersion>
-        <TM_MsTestVersion>4.0.2</TM_MsTestVersion>
+        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.0</TM_DotNetVersion>
+        <TM_MsTestVersion Condition="'$(TM_MsTestVersion)' == ''">4.0.2</TM_MsTestVersion>
     </PropertyGroup>
 
     <!-- Import solution-specific Packages.props files -->
