@@ -17,6 +17,11 @@
         </BuildLog>
     </ItemDefinitionGroup>
     <ItemDefinitionGroup>
+        <ProjectReference>
+            <LinkLibraryDependencies>true</LinkLibraryDependencies>
+        </ProjectReference>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup>
         <ClCompile>
             <WarningLevel>Level4</WarningLevel>
             <SDLCheck>false</SDLCheck>
