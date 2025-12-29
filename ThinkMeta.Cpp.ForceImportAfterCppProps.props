@@ -17,6 +17,11 @@
         </BuildLog>
     </ItemDefinitionGroup>
     <ItemDefinitionGroup>
+        <ProjectReference>
+            <LinkLibraryDependencies>true</LinkLibraryDependencies>
+        </ProjectReference>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup>
         <ClCompile>
             <WarningLevel>Level4</WarningLevel>
             <SDLCheck>false</SDLCheck>
@@ -26,6 +31,8 @@
             <PreprocessorDefinitions>WIN32;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
             <TreatWarningAsError>true</TreatWarningAsError>
             <MultiProcessorCompilation>true</MultiProcessorCompilation>
+            <AdditionalBMIDirectories>$(SolutionDir)build\$(Configuration)\bmi\</AdditionalBMIDirectories>
+            <ModuleOutputFile>$(SolutionDir)build\$(Configuration)\bmi\</ModuleOutputFile>
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>

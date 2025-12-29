@@ -1,7 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup Label="Configuration">
         <ConfigurationType Condition="'$(ConfigurationType)' == ''">Application</ConfigurationType>
-        <PlatformToolset>v143</PlatformToolset>
+        <PlatformToolset>v145</PlatformToolset>
         <CharacterSet>Unicode</CharacterSet>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
