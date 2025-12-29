@@ -62,6 +62,6 @@
         <!-- Custom license -->
         <PackageVersion Include="Microsoft.VisualStudio.Extensibility.Contracts" Version="17.14.2098" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.0" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.16.1.129956" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.17.0.131074" />
     </ItemGroup>
 </Project>
