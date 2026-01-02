@@ -10,13 +10,15 @@
 
     <!-- Import solution-specific .props files -->
     <Import Condition="Exists('$(SolutionDir)SolutionFiles/$(SolutionName).Net.props')" Project="$(SolutionDir)SolutionFiles/$(SolutionName).Net.props"/>
-
     <Import Project="$(SolutionDir)ThinkMeta.SolutionFiles/ThinkMeta.CsWarnings.props"/>
 
+    <!-- Import project-specific .props files -->
+    <Import Condition="Exists('$(MSBuildProjectDirectory)\$(MSBuildProjectName).props')" Project="$(MSBuildProjectDirectory)\$(MSBuildProjectName).props"/>
+    
     <PropertyGroup>
         <TargetFramework Condition="'$(TargetFramework)' == '' AND '$(TargetFrameworks)' == ''">net10.0</TargetFramework>
     </PropertyGroup>
-    
+
     <!-- Paths -->
     <PropertyGroup>
         <TM_BuildPath Condition="'$(TM_BuildPath)' == ''">$(SolutionDir)build\</TM_BuildPath>
@@ -28,16 +30,24 @@
         <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
     </PropertyGroup>
 
+    <!-- GitHub -->
+    <PropertyGroup>
+        <TM_GitHubBaseUrl>https://github.com/ThinkMeta-com/</TM_GitHubBaseUrl>
+    </PropertyGroup>
+
     <!-- Packaging -->
     <PropertyGroup>
         <Authors Condition="'$(Authors)' == ''">ThinkMeta Software GmbH</Authors>
         <Company Condition="'$(Company)' == ''">ThinkMeta Software GmbH</Company>
+        <Copyright Condition="'$(Copyright)' == ''">Copyright (c) 2026 ThinkMeta Software GmbH</Copyright>
         <RepositoryType Condition="'$(RepositoryType)' == ''">git</RepositoryType>
+        <PackageProjectUrl Condition="'$(PackageProjectUrl)' == ''">$(TM_GitHubBaseUrl)$(TM_GitHubProjectName)</PackageProjectUrl>
+        <RepositoryUrl Condition="'$(RepositoryUrl)' == ''">$(TM_GitHubBaseUrl)$(TM_GitHubProjectName).git</RepositoryUrl>
         <PackageOutputPath Condition="'$(PackageOutputPath)' == ''">$(TM_BuildPath)publish\</PackageOutputPath>
         <IncludeSymbols Condition="'$(IncludeSymbols)' == ''">True</IncludeSymbols>
         <SymbolPackageFormat Condition="'$(SymbolPackageFormat)' == ''">snupkg</SymbolPackageFormat>
     </PropertyGroup>
-    
+
     <!-- Global build settings -->
     <PropertyGroup>
         <Nullable Condition="'$(Nullable)' == ''">enable</Nullable>

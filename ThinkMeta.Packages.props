@@ -49,7 +49,8 @@
         <PackageVersion Include="System.Drawing.Common" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Security.Cryptography.Xml" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Text.Json" Version="$(TM_DotNetVersion)" />
-        <PackageVersion Include="ThinkMeta.CodeAnalysis.CSharp" Version="1.0.5" />
+        <PackageVersion Include="ThinkMeta.CodeAnalysis.Annotations" Version="1.0.9" />
+        <PackageVersion Include="ThinkMeta.CodeAnalysis.CSharp" Version="1.0.9" />
 
         <!-- BSD-3-Clause -->
         <PackageVersion Include="NLog.Web.AspNetCore" Version="6.1.0" />
