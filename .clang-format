@@ -38,7 +38,7 @@ BreakBeforeInheritanceComma: false
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: AfterColon
 BreakStringLiterals: true
-ColumnLimit: 200
+ColumnLimit: 100
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 4
@@ -74,3 +74,27 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 TabWidth: 4
 UseTab: Never
+UseCRLF: true
+RequiresClausePosition: WithPreceding
+
+# --- Added/Updated for latest clang-format versions ---
+# PackConstructorInitializers: false # Pack constructor initializers
+# QualifierAlignment: Left # Alignment for const/volatile qualifiers
+# EmptyLineBeforeAccessModifier: Never # Empty line before access specifiers
+# SortJavaStaticImport: Before # Java static import sorting
+# IndentAccessModifiers: false # Indent access modifiers
+# ShortNamespaceLines: 1 # Short namespace formatting
+# BitFieldColonSpacing: Both # Spacing around bit-field colons
+# LambdaBodyIndentation: Signature # Indentation for lambda bodies
+# RequiresExpressionIndentation: OuterScope # Indentation for requires expressions
+# StatementAttributeLikeMacros: [] # Macros treated as statement attributes
+# SpaceBeforeCaseColon: false # Space before colon in case labels
+# SpaceBeforeCpp11BracedList: false # Space before C++11 braced list
+# SpaceBeforeSquareBrackets: false # Space before square brackets
+# SpaceBeforeTemplateKeyword: false # Space before template keyword
+# SpaceInLineComment: false # Space after // in line comments
+# SpacesInConditionalStatement: false # Space in conditional statements
+# SpacesInLambdaDeclaration: false # Space in lambda declaration
+# SpacesInSwitchStatement: false # Space in switch statement
+# SpacesInTrailingComments: 1 # Spaces before trailing comments
+
