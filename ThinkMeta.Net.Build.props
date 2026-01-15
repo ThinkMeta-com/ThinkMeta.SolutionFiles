@@ -33,6 +33,7 @@
     <!-- GitHub -->
     <PropertyGroup>
         <TM_GitHubBaseUrl>https://github.com/ThinkMeta-com/</TM_GitHubBaseUrl>
+        <TM_GitHubProjectName Condition="'$(TM_GitHubProjectName)' == ''">$(SolutionName)</TM_GitHubProjectName>
     </PropertyGroup>
 
     <!-- Packaging -->
