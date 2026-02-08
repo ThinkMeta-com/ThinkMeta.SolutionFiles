@@ -80,6 +80,7 @@
     <PropertyGroup Condition="'$(TM_IsTestProject)' == 'True'">
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <GenerateTargetFrameworkAttribute>true</GenerateTargetFrameworkAttribute>
     </PropertyGroup>
 
