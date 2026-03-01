@@ -21,9 +21,9 @@
         <PackageVersion Include="Microsoft.CodeAnalysis" Version="5.0.0" />
         <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
         <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.2" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" Version="1.1.2" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing" Version="1.1.2" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.3" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" Version="1.1.3" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing" Version="1.1.3" />
         <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.0.0" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(TM_DotNetVersion)" />
