@@ -14,7 +14,7 @@
         </TM_SonarLintNoWarn>
 
         <TM_NoWarnForced>
-            BL0007
+            BL0007,IDE0370
         </TM_NoWarnForced>
     </PropertyGroup>
 
