@@ -76,14 +76,6 @@
         </PackageReference>
     </ItemGroup>
 
-    <!-- Test project -->
-    <PropertyGroup Condition="'$(TM_IsTestProject)' == 'True'">
-        <IsPackable>false</IsPackable>
-        <IsTestProject>true</IsTestProject>
-        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <GenerateTargetFrameworkAttribute>true</GenerateTargetFrameworkAttribute>
-    </PropertyGroup>
-
     <!-- Test project references -->
     <ItemGroup Condition="'$(TM_IsTestProject)' == 'True'">
         <PackageReference Include="Microsoft.NET.Test.Sdk" />
