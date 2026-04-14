@@ -60,6 +60,7 @@
 
     <!-- Analyzers -->
     <PropertyGroup Condition="'$(TM_NoAnalyzers)' != 'True'">
+        <AnalysisLevel>latest</AnalysisLevel>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
     </PropertyGroup>
