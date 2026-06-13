@@ -1,8 +1,8 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.2</TM_DotNetVersion>
-        <TM_MsTestVersion Condition="'$(TM_MsTestVersion)' == ''">4.0.2</TM_MsTestVersion>
+        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.8</TM_DotNetVersion>
+        <TM_MsTestVersion Condition="'$(TM_MsTestVersion)' == ''">4.2.3</TM_MsTestVersion>
     </PropertyGroup>
 
     <!-- Import solution-specific Packages.props files -->
@@ -10,21 +10,22 @@
 
     <ItemGroup>
         <!-- MIT license -->
-        <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-        <PackageVersion Include="DocumentFormat.OpenXml" Version="3.4.1" />
-        <PackageVersion Include="FluentFTP" Version="53.0.2" />
+        <PackageVersion Include="coverlet.collector" Version="10.0.1" />
+        <PackageVersion Include="DocumentFormat.OpenXml" Version="3.5.1" />
+        <PackageVersion Include="FluentFTP" Version="54.1.1" />
         <PackageVersion Include="HtmlAgilityPack" Version="1.12.4" />
-        <PackageVersion Include="MailKit" Version="4.14.1" />
+        <PackageVersion Include="LibGit2Sharp" Version="0.31.0" />
+        <PackageVersion Include="MailKit" Version="4.17.0" />
         <PackageVersion Include="Microsoft.AspNetCore.Components" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="$(TM_DotNetVersion)" />
-        <PackageVersion Include="Microsoft.CodeAnalysis" Version="5.0.0" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.2" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" Version="1.1.2" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing" Version="1.1.2" />
-        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.0.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis" Version="5.3.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="5.3.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.3.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.3" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" Version="1.1.3" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing" Version="1.1.3" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.3.0" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(TM_DotNetVersion)" />
@@ -32,16 +33,17 @@
         <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.JSInterop" Version="$(TM_DotNetVersion)" />
-        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-        <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="180.10.0" />
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.6.0" />
+        <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="181.19.0" />
         <PackageVersion Include="Microsoft.VisualStudio.SDK" Version="17.0.32112.339" />
         <PackageVersion Include="Microsoft.VSSDK.BuildTools" Version="17.14.2120" />
         <PackageVersion Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
         <PackageVersion Include="MSTest" Version="$(TM_MsTestVersion)" />
         <PackageVersion Include="MSTest.TestAdapter" Version="$(TM_MsTestVersion)" />
         <PackageVersion Include="MSTest.TestFramework" Version="$(TM_MsTestVersion)" />
-        <PackageVersion Include="Plotly.Blazor" Version="6.0.2" />
-        <PackageVersion Include="QRCoder" Version="1.7.0" />
+        <PackageVersion Include="Plotly.Blazor" Version="7.1.0" />
+        <PackageVersion Include="Plugin.BLE" Version="3.2.0" />
+        <PackageVersion Include="QRCoder" Version="1.8.0" />
         <PackageVersion Include="System.Data.Odbc" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Data.OleDb" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.DirectoryServices" Version="$(TM_DotNetVersion)" />
@@ -49,10 +51,10 @@
         <PackageVersion Include="System.Drawing.Common" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Security.Cryptography.Xml" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Text.Json" Version="$(TM_DotNetVersion)" />
-        <PackageVersion Include="ThinkMeta.CodeAnalysis.CSharp" Version="1.0.11" />
+        <PackageVersion Include="ThinkMeta.CodeAnalysis.CSharp" Version="1.0.16" />
 
         <!-- BSD-3-Clause -->
-        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.1.0" />
+        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.1.3" />
         <PackageVersion Include="NSubstitute" Version="5.3.0" />
 
         <!-- Apache-2.0 -->
@@ -64,7 +66,7 @@
         <PackageVersion Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
         <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
         <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
-        <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.100" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.18.0.131500" />
+        <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.200" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.27.0.140913" />
     </ItemGroup>
 </Project>

@@ -1,4 +1,8 @@
 <Project InitialTargets="CopyFilesToRoot">
+    <PropertyGroup>
+        <SolutionDir Condition="'$(SolutionDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</SolutionDir>
+    </PropertyGroup>
+    
     <ItemGroup>
         <EditorConfigFile Include="$(SolutionDir)ThinkMeta.SolutionFiles\.editorconfig" />
     </ItemGroup>
@@ -60,6 +64,7 @@
 
     <!-- Analyzers -->
     <PropertyGroup Condition="'$(TM_NoAnalyzers)' != 'True'">
+        <AnalysisLevel>latest</AnalysisLevel>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
     </PropertyGroup>
@@ -75,13 +80,6 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
-
-    <!-- Test project -->
-    <PropertyGroup Condition="'$(TM_IsTestProject)' == 'True'">
-        <IsPackable>false</IsPackable>
-        <IsTestProject>true</IsTestProject>
-        <GenerateTargetFrameworkAttribute>true</GenerateTargetFrameworkAttribute>
-    </PropertyGroup>
 
     <!-- Test project references -->
     <ItemGroup Condition="'$(TM_IsTestProject)' == 'True'">
