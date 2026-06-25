@@ -1,4 +1,8 @@
 <Project InitialTargets="CopyFilesToRoot">
+    <PropertyGroup>
+        <SolutionDir Condition="'$(SolutionDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</SolutionDir>
+    </PropertyGroup>
+    
     <ItemGroup>
         <EditorConfigFile Include="$(SolutionDir)ThinkMeta.SolutionFiles\.editorconfig" />
     </ItemGroup>
