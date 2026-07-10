@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.8</TM_DotNetVersion>
+        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.9</TM_DotNetVersion>
         <TM_MsTestVersion Condition="'$(TM_MsTestVersion)' == ''">4.2.3</TM_MsTestVersion>
     </PropertyGroup>
 
@@ -12,7 +12,7 @@
         <!-- MIT license -->
         <PackageVersion Include="coverlet.collector" Version="10.0.1" />
         <PackageVersion Include="DocumentFormat.OpenXml" Version="3.5.1" />
-        <PackageVersion Include="FluentFTP" Version="54.1.1" />
+        <PackageVersion Include="FluentFTP" Version="54.2.0" />
         <PackageVersion Include="HtmlAgilityPack" Version="1.12.4" />
         <PackageVersion Include="LibGit2Sharp" Version="0.31.0" />
         <PackageVersion Include="MailKit" Version="4.17.0" />
@@ -44,6 +44,7 @@
         <PackageVersion Include="Plotly.Blazor" Version="7.1.0" />
         <PackageVersion Include="Plugin.BLE" Version="3.2.0" />
         <PackageVersion Include="QRCoder" Version="1.8.0" />
+        <PackageVersion Include="System.Configuration.ConfigurationManager" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Data.Odbc" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Data.OleDb" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.DirectoryServices" Version="$(TM_DotNetVersion)" />
@@ -67,6 +68,6 @@
         <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
         <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.200" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.27.0.140913" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.28.0.143324" />
     </ItemGroup>
 </Project>
