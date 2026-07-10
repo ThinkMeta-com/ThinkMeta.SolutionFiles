@@ -33,6 +33,7 @@
             <MultiProcessorCompilation>true</MultiProcessorCompilation>
             <AdditionalBMIDirectories>$(SolutionDir)build\$(Configuration)\bmi\</AdditionalBMIDirectories>
             <ModuleOutputFile>$(SolutionDir)build\$(Configuration)\bmi\</ModuleOutputFile>
+            <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>
