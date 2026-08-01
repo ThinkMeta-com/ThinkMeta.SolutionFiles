@@ -55,7 +55,7 @@
         <PackageVersion Include="ThinkMeta.CodeAnalysis.CSharp" Version="1.0.16" />
 
         <!-- BSD-3-Clause -->
-        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.1.3" />
+        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.1.4" />
         <PackageVersion Include="NSubstitute" Version="6.0.0" />
 
         <!-- Apache-2.0 -->
@@ -68,6 +68,6 @@
         <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
         <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.200" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.28.0.143324" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.32.0.145097" />
     </ItemGroup>
 </Project>
