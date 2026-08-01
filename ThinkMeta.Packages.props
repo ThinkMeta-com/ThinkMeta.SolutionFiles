@@ -68,6 +68,6 @@
         <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
         <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.200" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.32.0.145097" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.31.0.145097" />
     </ItemGroup>
 </Project>
