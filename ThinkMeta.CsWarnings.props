@@ -8,9 +8,11 @@
             S2376       Write-only properties should not be used
             S3904       Provide an 'AssemblyVersion' attribute for assembly 'assembly'
             S4275       Getters and setters should access the expected fields
+            S6444       Pass a timeout to limit the execution time
+            S8970       Remove this null-forgiving operator; nullable warnings are disabled here
         -->
         <TM_SonarLintNoWarn>
-            S125;S1075;S1135;S1244;S2376;S3904;S4275
+            S125;S1075;S1135;S1244;S2376;S3904;S4275;S6444;S8970
         </TM_SonarLintNoWarn>
 
         <TM_NoWarnForced>
