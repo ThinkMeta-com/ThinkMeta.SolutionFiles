@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.10</TM_DotNetVersion>
+        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.11</TM_DotNetVersion>
         <TM_MsTestVersion Condition="'$(TM_MsTestVersion)' == ''">4.3.3</TM_MsTestVersion>
     </PropertyGroup>
 
@@ -14,7 +14,7 @@
         <PackageVersion Include="DocumentFormat.OpenXml" Version="3.5.1" />
         <PackageVersion Include="FluentFTP" Version="54.2.0" />
         <PackageVersion Include="HtmlAgilityPack" Version="1.12.4" />
-        <PackageVersion Include="LibGit2Sharp" Version="0.31.0" />
+        <PackageVersion Include="LibGit2Sharp" Version="0.32.0" />
         <PackageVersion Include="MailKit" Version="4.17.0" />
         <PackageVersion Include="Microsoft.AspNetCore.Components" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="$(TM_DotNetVersion)" />
@@ -29,8 +29,12 @@
         <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.Identity.Core" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.JSInterop" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
@@ -68,6 +72,6 @@
         <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
         <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.200" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.31.0.145097" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.32.0.713" />
     </ItemGroup>
 </Project>
