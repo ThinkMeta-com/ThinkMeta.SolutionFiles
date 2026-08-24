@@ -37,8 +37,8 @@
         <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.JSInterop" Version="$(TM_DotNetVersion)" />
-        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
-        <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="181.25.0" />
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+        <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="181.36.0" />
         <PackageVersion Include="Microsoft.VisualStudio.SDK" Version="17.0.32112.339" />
         <PackageVersion Include="Microsoft.VSSDK.BuildTools" Version="17.14.2120" />
         <PackageVersion Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
@@ -59,8 +59,8 @@
         <PackageVersion Include="ThinkMeta.CodeAnalysis.CSharp" Version="1.0.16" />
 
         <!-- BSD-3-Clause -->
-        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.1.4" />
-        <PackageVersion Include="NSubstitute" Version="6.0.0" />
+        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.2.0" />
+        <PackageVersion Include="NSubstitute" Version="6.2.0" />
 
         <!-- Apache-2.0 -->
         <PackageVersion Include="ZXing.Net" Version="0.16.11" />
@@ -72,6 +72,6 @@
         <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
         <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.200" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.32.0.713" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.33.0.1635" />
     </ItemGroup>
 </Project>
