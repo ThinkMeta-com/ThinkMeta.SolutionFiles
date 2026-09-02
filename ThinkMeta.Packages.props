@@ -65,7 +65,7 @@
 
         <!-- Apache-2.0 -->
         <PackageVersion Include="ZXing.Net" Version="0.16.11" />
-        <PackageVersion Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.14" />
+        <PackageVersion Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.16" />
 
         <!-- Custom license -->
         <PackageVersion Include="Microsoft.VisualStudio.Extensibility.Contracts" Version="17.14.2098" />
