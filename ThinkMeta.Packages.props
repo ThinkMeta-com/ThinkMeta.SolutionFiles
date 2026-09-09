@@ -1,8 +1,9 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.11</TM_DotNetVersion>
+        <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.12</TM_DotNetVersion>
         <TM_MsTestVersion Condition="'$(TM_MsTestVersion)' == ''">4.4.0</TM_MsTestVersion>
+        <TM_MsMlVersion Condition="'$(TM_MsMlVersion)' == ''">5.0.0</TM_MsMlVersion>
     </PropertyGroup>
 
     <!-- Import solution-specific Packages.props files -->
@@ -20,6 +21,7 @@
         <PackageVersion Include="Microsoft.AspNetCore.Components" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.CodeAnalysis" Version="5.6.0" />
         <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="5.6.0" />
         <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.6.0" />
@@ -28,6 +30,10 @@
         <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing" Version="1.1.4" />
         <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.6.0" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(TM_DotNetVersion)">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageVersion>
         <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(TM_DotNetVersion)" />
@@ -38,6 +44,9 @@
         <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.JSInterop" Version="$(TM_DotNetVersion)" />
+        <PackageVersion Include="Microsoft.ML" Version="$(TM_MsMlVersion)" />
+        <PackageVersion Include="Microsoft.ML.Vision" Version="$(TM_MsMlVersion)" />
+        <PackageVersion Include="Microsoft.ML.ImageAnalytics" Version="$(TM_MsMlVersion)" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
         <PackageVersion Include="Microsoft.SqlServer.SqlManagementObjects" Version="181.36.0" />
         <PackageVersion Include="Microsoft.VisualStudio.SDK" Version="17.0.32112.339" />
