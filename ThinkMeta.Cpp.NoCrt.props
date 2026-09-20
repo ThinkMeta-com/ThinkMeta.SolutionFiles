@@ -1,0 +1,75 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <!--
+        Builds a binary without the C runtime: no CRT, no STL runtime, no startup code. Enable it
+        per project with <TM_NoCrt>True</TM_NoCrt> in the project's "Globals" PropertyGroup.
+
+        A project built this way is independent of the toolset and of /MD vs /MT in its consumers,
+        needs no VC++ redistributable, and only imports what it declares in TM_NoCrtLibraries. In
+        exchange it must live without the CRT:
+
+          - No global objects with a non-trivial constructor: without CRT startup code, static
+            initializers never run. Use constinit, or initialize in DllMain.
+          - Provide operator new/delete yourself, e.g. over a private HeapCreate heap.
+          - Provide memset/memcpy yourself (#pragma function, or __stosb/__movsb): the compiler
+            emits calls to them for struct copies and zeroing.
+          - Keep stack frames below 4 KB, or provide __chkstk.
+          - No thread_local, no std::atomic::wait/notify (that lives in msvcp140), no floating
+            point (that needs _fltused).
+
+        Header-only parts of the STL (<atomic>, <array>, <type_traits>, ...) are fine.
+
+        Knobs:
+          TM_NoCrtEntryPoint  - entry point symbol; defaults to DllMain, which suits a DLL.
+          TM_NoCrtLibraries   - import libraries to link besides kernel32.lib, semicolon separated.
+          TM_NoCrtVerifyImports - set to False to skip the post-build import check.
+    -->
+    <PropertyGroup>
+        <TM_NoCrtEntryPoint Condition="'$(TM_NoCrtEntryPoint)' == ''">DllMain</TM_NoCrtEntryPoint>
+        <TM_NoCrtVerifyImports Condition="'$(TM_NoCrtVerifyImports)' == ''">True</TM_NoCrtVerifyImports>
+
+        <!-- Nothing to put in a manifest: there is no runtime dependency to describe. -->
+        <GenerateManifest>false</GenerateManifest>
+    </PropertyGroup>
+
+    <ItemDefinitionGroup>
+        <ClCompile>
+            <!-- All of these would pull in CRT helpers. -->
+            <ExceptionHandling>false</ExceptionHandling>
+            <BufferSecurityCheck>false</BufferSecurityCheck>
+            <RuntimeTypeInfo>false</RuntimeTypeInfo>
+            <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+            <SDLCheck>false</SDLCheck>
+            <ControlFlowGuard>false</ControlFlowGuard>
+
+            <!-- _HAS_EXCEPTIONS=0 keeps the STL headers from expecting throw to work.
+                 /Zc:threadSafeInit- drops the CRT helpers behind thread-safe local statics. -->
+            <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+            <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+
+            <!-- Modules compiled with these switches are not interchangeable with the ones the
+                 rest of the solution builds, so they get their own BMI directory. Sharing it
+                 would let two incompatible IFC files for the same module overwrite each other. -->
+            <AdditionalBMIDirectories>$(SolutionDir)build\$(Configuration)\bmi-nocrt\</AdditionalBMIDirectories>
+            <ModuleOutputFile>$(SolutionDir)build\$(Configuration)\bmi-nocrt\</ModuleOutputFile>
+        </ClCompile>
+        <Link>
+            <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+            <EntryPointSymbol>$(TM_NoCrtEntryPoint)</EntryPointSymbol>
+            <AdditionalDependencies>kernel32.lib;$(TM_NoCrtLibraries);%(AdditionalDependencies)</AdditionalDependencies>
+        </Link>
+    </ItemDefinitionGroup>
+
+    <!-- The static runtime library still decides which default-library directives the compiler
+         writes into the object files. Picking the static one keeps them out of the way even
+         though /NODEFAULTLIB ignores them anyway. -->
+    <ItemDefinitionGroup Condition="'$(Configuration)' == 'Debug'">
+        <ClCompile>
+            <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+        </ClCompile>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)' != 'Debug'">
+        <ClCompile>
+            <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+        </ClCompile>
+    </ItemDefinitionGroup>
+</Project>

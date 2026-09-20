@@ -43,6 +43,33 @@ You can use the following properties to customize the build:
 |Property|Description|
 |---|---|
 |`TM_DisableBuildHooks`|If set to `true`, the provided C++ .props and .targets files will not be used.|
+|`TM_NoCrt`|If set to `True`, the project is built without the C runtime (see below).|
+|`TM_NoCrtEntryPoint`|Entry point symbol of a `TM_NoCrt` project. Defaults to `DllMain`.|
+|`TM_NoCrtLibraries`|Import libraries a `TM_NoCrt` project links besides `kernel32.lib`, separated by semicolons.|
+|`TM_NoCrtVerifyImports`|If set to `False`, the import check after linking a `TM_NoCrt` project is skipped.|
+|`TM_DumpBin`|Full path of `dumpbin.exe` for that check, in case it is not found next to the toolset.|
+
+### Building without the C runtime
+
+`TM_NoCrt` belongs in the project's `Globals` property group, because it is evaluated while the
+build hooks are imported:
+
+```xml
+  <PropertyGroup Label="Globals">
+    ...
+    <TM_NoCrt>True</TM_NoCrt>
+  </PropertyGroup>
+```
+
+The resulting binary is independent of the toolset and of `/MD` vs `/MT` in its consumers, needs no
+VC++ redistributable, and imports only what `TM_NoCrtLibraries` declares. After linking, the build
+checks that nothing pulled the runtime back in and fails otherwise.
+
+In exchange the code must live without the CRT: no global objects with a non-trivial constructor
+(static initializers never run), no `thread_local`, no `std::atomic::wait`/`notify`, no floating
+point, and `operator new`/`delete` as well as `memset`/`memcpy` have to be provided by the project
+itself. Header-only parts of the STL are fine. Modules of such a project are written to their own
+BMI directory, since their switches differ from the rest of the solution.
 
 ## C#
 

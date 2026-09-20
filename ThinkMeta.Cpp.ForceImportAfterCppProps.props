@@ -60,4 +60,6 @@
             <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
         </Link>
     </ItemDefinitionGroup>
+    <!-- Opt-in, per project: build without the C runtime (see the file for what that costs). -->
+    <Import Condition="'$(TM_NoCrt)' == 'True'" Project="$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.NoCrt.props" />
 </Project>

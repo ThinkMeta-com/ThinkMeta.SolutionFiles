@@ -1,2 +1,3 @@
 <Project>
+    <Import Condition="'$(TM_NoCrt)' == 'True'" Project="$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.NoCrt.targets" />
 </Project>

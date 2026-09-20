@@ -1,0 +1,33 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <!--
+        Guards what ThinkMeta.Cpp.NoCrt.props promises: after linking, the binary must not import
+        the C runtime. A stray global with a constructor, a thread_local, a throw or a floating
+        point constant pulls one of these in, and without this check the build would happily
+        succeed and the binary would only fail on a machine without the redistributable.
+    -->
+    <Target Name="TM_VerifyNoCrtImports"
+            AfterTargets="Link"
+            Condition="'$(TM_NoCrt)' == 'True' AND '$(TM_NoCrtVerifyImports)' == 'True' AND '$(ConfigurationType)' != 'StaticLibrary'">
+        <PropertyGroup>
+            <TM_DumpBin Condition="'$(TM_DumpBin)' == ''">$(VCToolsInstallDir)bin\Host$(VCToolArchitecture)\$(VCToolArchitecture)\dumpbin.exe</TM_DumpBin>
+            <TM_DumpBin Condition="!Exists('$(TM_DumpBin)')">$(VCToolsInstallDir)bin\Hostx64\x64\dumpbin.exe</TM_DumpBin>
+        </PropertyGroup>
+
+        <Warning Condition="!Exists('$(TM_DumpBin)')"
+                 Text="TM_NoCrt: dumpbin.exe not found, skipping the import check. Set TM_DumpBin to its full path." />
+
+        <Exec Condition="Exists('$(TM_DumpBin)')"
+              Command="&quot;$(TM_DumpBin)&quot; /nologo /imports &quot;$(TargetPath)&quot;"
+              ConsoleToMSBuild="true"
+              StandardOutputImportance="low">
+            <Output TaskParameter="ConsoleOutput" PropertyName="TM_NoCrtImports" />
+        </Exec>
+
+        <Error Condition="$(TM_NoCrtImports.Contains('VCRUNTIME'))"
+               Text="TM_NoCrt: $(TargetFileName) imports VCRUNTIME. Look for exceptions, RTTI or a security check that pulls in the runtime." />
+        <Error Condition="$(TM_NoCrtImports.Contains('ucrtbase')) OR $(TM_NoCrtImports.Contains('api-ms-win-crt'))"
+               Text="TM_NoCrt: $(TargetFileName) imports the universal CRT. Look for a CRT function (memset, malloc, printf, ...) that is not provided by the project itself." />
+        <Error Condition="$(TM_NoCrtImports.Contains('msvcp'))"
+               Text="TM_NoCrt: $(TargetFileName) imports the C++ standard library. Look for a non-header-only part of the STL, e.g. std::atomic::wait." />
+    </Target>
+</Project>
