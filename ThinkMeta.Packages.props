@@ -69,7 +69,7 @@
         <PackageVersion Include="ThinkMeta.CodeAnalysis.CSharp" Version="1.0.17" />
 
         <!-- BSD-3-Clause -->
-        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.2.0" />
+        <PackageVersion Include="NLog.Web.AspNetCore" Version="6.2.1" />
         <PackageVersion Include="NSubstitute" Version="6.2.0" />
 
         <!-- Apache-2.0 -->
