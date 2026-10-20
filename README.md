@@ -20,7 +20,13 @@ Create a "Directory.Build.props" file in the root directory with the following c
 </Project>
 ```
 
-Currently, a "Directory.Build.targets" file is not required.
+Also create a "Directory.Build.targets" file in the root directory with the following content:
+
+```xml
+<Project>
+    <Import Project="$(SolutionDir)ThinkMeta.SolutionFiles/ThinkMeta.Build.targets"/>
+</Project>
+```
 
 ## Central nuget package version management (C# only):
 
