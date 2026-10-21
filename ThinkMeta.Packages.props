@@ -56,7 +56,7 @@
         <PackageVersion Include="MSTest.TestAdapter" Version="$(TM_MsTestVersion)" />
         <PackageVersion Include="MSTest.TestFramework" Version="$(TM_MsTestVersion)" />
         <PackageVersion Include="Plotly.Blazor" Version="7.2.0" />
-        <PackageVersion Include="Plugin.BLE" Version="3.2.0" />
+        <PackageVersion Include="Plugin.BLE" Version="3.2.1" />
         <PackageVersion Include="QRCoder" Version="1.8.1" />
         <PackageVersion Include="System.Configuration.ConfigurationManager" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="System.Data.Odbc" Version="$(TM_DotNetVersion)" />
