@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
         <TM_DotNetVersion Condition="'$(TM_DotNetVersion)' == ''">10.0.14</TM_DotNetVersion>
-        <TM_MsTestVersion Condition="'$(TM_MsTestVersion)' == ''">4.5.1</TM_MsTestVersion>
+        <TM_MsTestVersion Condition="'$(TM_MsTestVersion)' == ''">4.5.2</TM_MsTestVersion>
         <TM_MsMlVersion Condition="'$(TM_MsMlVersion)' == ''">5.0.0</TM_MsMlVersion>
     </PropertyGroup>
 
@@ -74,7 +74,7 @@
 
         <!-- Apache-2.0 -->
         <PackageVersion Include="ZXing.Net" Version="0.16.11" />
-        <PackageVersion Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.16" />
+        <PackageVersion Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.17" />
 
         <!-- Custom license -->
         <PackageVersion Include="Microsoft.VisualStudio.Extensibility.Contracts" Version="17.14.2098" />
