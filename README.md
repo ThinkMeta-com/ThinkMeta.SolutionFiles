@@ -42,10 +42,45 @@ Create a "Directory.Packages.props" file in the root directory with the followin
 
 ## C++
 
-Solution-specific settings for C++ projects can be defined in `$(SolutionDir)SolutionFiles/$(SolutionName).Cpp.props`.
-It applies to every C++ project built as part of the solution, including the projects of submodules, and is imported after
-the defaults of these build files (so it can override them, e.g. `RuntimeLibrary`). Settings in a project file and the
-`TM_NoCrt` settings take precedence over it.
+### Defaults
+
+Every C++ project gets these settings:
+
+|Area|Setting|
+|---|---|
+|Configurations|`Debug` and `Release` for `x64`, toolset `v145`, Unicode character set|
+|Compiler|`/W4`, warnings as errors (C4324 disabled), conformance mode, latest C++ standard, C17, multi-processor compilation, fiber-safe optimizations|
+|Release|function-level linking, intrinsics, frame pointer omission, whole program optimization with link-time code generation, COMDAT folding, unreferenced code removal|
+|Output|`build\$(Configuration)\bin\`, intermediate files in `build\$(Configuration)\obj\$(MSBuildProjectName)\`|
+|Modules|one BMI directory for the whole solution, `build\$(Configuration)\bmi\`|
+|Linker|subsystem `Console`, debug information in all configurations|
+
+### Solution-specific settings
+
+Settings for all C++ projects of a solution can be defined in `$(SolutionDir)SolutionFiles/$(SolutionName).Cpp.props`,
+e.g. `SolutionFiles/MySolution.Cpp.props` for `MySolution.slnx`:
+
+```xml
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemDefinitionGroup>
+        <ClCompile>
+            <RuntimeLibrary Condition="'$(Configuration)' == 'Debug'">MultiThreadedDebug</RuntimeLibrary>
+            <RuntimeLibrary Condition="'$(Configuration)' == 'Release'">MultiThreaded</RuntimeLibrary>
+        </ClCompile>
+    </ItemDefinitionGroup>
+</Project>
+```
+
+* It applies to every C++ project built as part of the solution, **including the projects of submodules**. This is the
+  place for switches that all libraries of an executable have to agree on, such as the C runtime.
+* It is imported after the defaults above, so it can override them. Settings in a project file and the `TM_NoCrt`
+  settings take precedence over it.
+* It is only used when the solution is built (Visual Studio or `msbuild MySolution.slnx`). A project built on its own has
+  no `$(SolutionName)` and gets the defaults only.
+* It is imported after `Microsoft.Cpp.props`: item definitions (`ClCompile`, `Link`, ...) and properties evaluated later
+  work, properties that Visual Studio evaluates earlier (e.g. `ConfigurationType`, `PlatformToolset`) do not.
+
+### Properties
 
 You can use the following properties to customize the build:
 
@@ -112,7 +147,7 @@ The configuration files are copied to `$(SolutionDir)` when the build is started
   <!-- Load the supported configuration (e.g. Win32/x64, Debug/Release, ...) -->
   <Import Project="$(SolutionDir)ThinkMeta.SolutionFiles\ThinkMeta.Cpp.Configurations.props" />
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>17.0</VCProjectVersion>
+    <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{0218a0a5-a969-44de-879b-49d831137261}</ProjectGuid>
     <RootNamespace>MyProject</RootNamespace>
@@ -144,6 +179,21 @@ As above, with few modifications:
   <Import Project="$(SolutionDir)ThinkMeta.SolutionFiles\ThinkMeta.Cpp.StaticLibrary.props" />
   ...
 ```
+
+### Projects that are also used as submodules
+
+`$(SolutionDir)` is empty when a project is built on its own. A project that other solutions pull in as a submodule
+therefore sets a fallback before the first import, relative to the project file:
+
+```xml
+  <PropertyGroup>
+    <SolutionDir Condition="'$(SolutionDir)' == ''">$(MSBuildThisFileDirectory)..\</SolutionDir>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)ThinkMeta.SolutionFiles\ThinkMeta.Cpp.Configurations.props" />
+```
+
+Inside a solution `$(SolutionDir)` is the solution's folder, so the submodule project uses the solution's
+ThinkMeta.SolutionFiles and its solution-specific settings.
 
 ## .csproj (C#)
 
