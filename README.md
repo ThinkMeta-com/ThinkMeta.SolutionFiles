@@ -42,7 +42,10 @@ Create a "Directory.Packages.props" file in the root directory with the followin
 
 ## C++
 
-Support for a solution-specific .props file is not yet implemented.
+Solution-specific settings for C++ projects can be defined in `$(SolutionDir)SolutionFiles/$(SolutionName).Cpp.props`.
+It applies to every C++ project built as part of the solution, including the projects of submodules, and is imported after
+the defaults of these build files (so it can override them, e.g. `RuntimeLibrary`). Settings in a project file and the
+`TM_NoCrt` settings take precedence over it.
 
 You can use the following properties to customize the build:
 

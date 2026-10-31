@@ -60,6 +60,9 @@
             <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
         </Link>
     </ItemDefinitionGroup>
+    <!-- Solution-specific settings for all C++ projects of the solution, including those of submodules.
+         Imported after the defaults above, so it can override them; the project file itself and TM_NoCrt still win. -->
+    <Import Condition="'$(SolutionName)' != '' AND Exists('$(SolutionDir)SolutionFiles/$(SolutionName).Cpp.props')" Project="$(SolutionDir)SolutionFiles/$(SolutionName).Cpp.props" />
     <!-- Opt-in, per project: build without the C runtime (see the file for what that costs). -->
     <Import Condition="'$(TM_NoCrt)' == 'True'" Project="$(MSBuildThisFileDirectory)\ThinkMeta.Cpp.NoCrt.props" />
 </Project>
