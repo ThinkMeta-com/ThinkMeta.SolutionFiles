@@ -1,6 +1,14 @@
 <Project InitialTargets="CopyFilesToRoot">
     <PropertyGroup>
         <SolutionDir Condition="'$(SolutionDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</SolutionDir>
+
+        <!--
+            The .NET version supported by this repository. Solutions that need an older version pin the submodule
+            to an older commit.
+            Used for projects that set neither TargetFramework nor TargetFrameworks. Project files use it for
+            platform-specific target frameworks, e.g. <TargetFramework>$(TM_TargetFramework)-windows</TargetFramework>.
+        -->
+        <TM_TargetFramework>net11.0</TM_TargetFramework>
     </PropertyGroup>
     
     <ItemGroup>
@@ -20,7 +28,7 @@
     <Import Condition="Exists('$(MSBuildProjectDirectory)\$(MSBuildProjectName).props')" Project="$(MSBuildProjectDirectory)\$(MSBuildProjectName).props"/>
     
     <PropertyGroup>
-        <TargetFramework Condition="'$(TargetFramework)' == '' AND '$(TargetFrameworks)' == ''">net10.0</TargetFramework>
+        <TargetFramework Condition="'$(TargetFramework)' == '' AND '$(TargetFrameworks)' == ''">$(TM_TargetFramework)</TargetFramework>
     </PropertyGroup>
 
     <!-- Paths -->
@@ -61,6 +69,19 @@
         <GenerateTargetFrameworkAttribute Condition="'$(GenerateTargetFrameworkAttribute)' == ''">false</GenerateTargetFrameworkAttribute>
         <GenerateDocumentationFile Condition="'$(GenerateDocumentationFile)' == ''">true</GenerateDocumentationFile>
     </PropertyGroup>
+
+    <!--
+        Runtime async (.NET 11, preview): the runtime suspends and resumes async methods instead of compiler-generated
+        state machines (less overhead, cleaner stack traces). Opt out per project with <UseRuntimeAsync>false</UseRuntimeAsync>.
+        Applied in a target, because only the final target framework decides whether the runtime supports it
+        (a project that targets e.g. netstandard2.0 keeps the state machines).
+    -->
+    <Target Name="TM_EnableRuntimeAsync" BeforeTargets="CoreCompile"
+            Condition="'$(UseRuntimeAsync)' != 'false' AND '$(Language)' == 'C#' AND '$(TargetFramework)' != '' AND $([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net11.0'))">
+        <PropertyGroup>
+            <Features>$(Features);runtime-async=on</Features>
+        </PropertyGroup>
+    </Target>
 
     <!-- Analyzers -->
     <PropertyGroup Condition="'$(TM_NoAnalyzers)' != 'True'">

@@ -126,7 +126,43 @@ You can use the following properties to customize the build (either in the above
 |<i>Any MSBuild property</i>|If an MSBuild property is defined, it will not be overwritten by later .props files (except where required).|
 |`TM_BuildPath`|Sets the build path.<br>The output, intermediate and publish path will be set inside this folder.|
 |`TM_NoAnalyzers`|Disables code analysis for the project.|
+|`TM_NoPkcsPin`|If set to `true`, the pinned `System.Security.Cryptography.Pkcs` reference is not added (see below).|
 |`TM_IsTestProject`|If set to `true`, the required properties and package references for test projects will be included.
+|`UseRuntimeAsync`|If set to `false`, runtime async is not enabled for the project (see below).|
+
+### .NET version
+
+This repository supports exactly one .NET version, currently **.NET 11**. Solutions that are not migrated yet pin the
+submodule to the last commit that supported their .NET version.
+
+* Projects that set neither `TargetFramework` nor `TargetFrameworks` target `$(TM_TargetFramework)` (`net11.0`).
+* Project files use `TM_TargetFramework` for platform-specific target frameworks, so that the next .NET upgrade only
+  requires an update of this repository:
+
+  ```xml
+  <TargetFramework>$(TM_TargetFramework)-windows10.0.19041.0</TargetFramework>
+  ```
+
+* Packages released together with .NET (ASP.NET Core, EF Core, `Microsoft.Extensions.*`, `System.*`) use
+  `$(TM_DotNetVersion)`. Their .NET 11 versions only support `net11.0` (ASP.NET Core, EF Core) or `net11.0` and
+  `netstandard2.0` (most `Microsoft.Extensions.*` and `System.*` packages).
+* Projects that must target `netstandard2.0` (e.g. Roslyn analyzers) are still supported.
+
+Notes for .NET 11:
+
+* `Microsoft.Extensions.{Caching,Configuration,DependencyInjection,Diagnostics,FileProviders,Hosting,Logging}.Abstractions`,
+  `Microsoft.Extensions.Options` and `Microsoft.Extensions.Primitives` are part of the shared framework. A reference to
+  one of them in a `net11.0` project fails with NU1510; remove it.
+* `System.Security.Cryptography.Pkcs` is pinned to a patched version for all projects except WPF/WinForms and Web SDK
+  projects, whose shared frameworks already contain it. Other projects that reference the ASP.NET Core shared framework
+  (`<FrameworkReference Include="Microsoft.AspNetCore.App" />`) set `TM_NoPkcsPin` to `true`.
+
+### Runtime async
+
+Runtime async (a preview feature of .NET 11) is enabled for all C# projects that target `net11.0` or later: the runtime
+suspends and resumes async methods instead of compiler-generated state machines, which reduces overhead and gives
+cleaner live stack traces. Projects that target an older framework such as `netstandard2.0` keep the state machines.
+Set `UseRuntimeAsync` to `false` in a project file to opt out, e.g. when a library behaves differently with it.
 
 # Text Editor configuration files
 
