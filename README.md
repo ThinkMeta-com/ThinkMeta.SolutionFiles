@@ -136,6 +136,8 @@ This repository supports exactly one .NET version, currently **.NET 11**. Soluti
 submodule to the last commit that supported their .NET version.
 
 * Projects that set neither `TargetFramework` nor `TargetFrameworks` target `$(TM_TargetFramework)` (`net11.0`).
+  The default is applied after the project file, so `TargetFrameworks` may be set in the project file
+  (e.g. `net10.0;net11.0` for a NuGet library that also supports the previous LTS release).
 * Project files use `TM_TargetFramework` for platform-specific target frameworks, so that the next .NET upgrade only
   requires an update of this repository:
 

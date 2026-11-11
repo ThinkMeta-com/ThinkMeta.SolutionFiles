@@ -9,6 +9,12 @@
             platform-specific target frameworks, e.g. <TargetFramework>$(TM_TargetFramework)-windows</TargetFramework>.
         -->
         <TM_TargetFramework>net11.0</TM_TargetFramework>
+
+        <!--
+            The SDK defaults Configuration to Debug only after this file. Without a global Configuration (building a
+            project directly or "dotnet run") the paths below would otherwise miss the configuration folder.
+        -->
+        <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     </PropertyGroup>
     
     <ItemGroup>
@@ -27,8 +33,14 @@
     <!-- Import project-specific .props files -->
     <Import Condition="Exists('$(MSBuildProjectDirectory)\$(MSBuildProjectName).props')" Project="$(MSBuildProjectDirectory)\$(MSBuildProjectName).props"/>
     
+    <!--
+        Default target framework. It is applied in ThinkMeta.Net.DefaultTargetFramework.targets, which the SDK imports
+        after the project file (BeforeMicrosoftNETSdkTargets): setting it here would also apply to projects that declare
+        <TargetFrameworks> in the project file and turn them into single-target builds.
+    -->
     <PropertyGroup>
-        <TargetFramework Condition="'$(TargetFramework)' == '' AND '$(TargetFrameworks)' == ''">$(TM_TargetFramework)</TargetFramework>
+        <TM_BeforeMicrosoftNETSdkTargets>$(BeforeMicrosoftNETSdkTargets)</TM_BeforeMicrosoftNETSdkTargets>
+        <BeforeMicrosoftNETSdkTargets>$(MSBuildThisFileDirectory)ThinkMeta.Net.DefaultTargetFramework.targets</BeforeMicrosoftNETSdkTargets>
     </PropertyGroup>
 
     <!-- Paths -->

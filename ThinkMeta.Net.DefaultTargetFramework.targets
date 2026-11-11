@@ -1,0 +1,8 @@
+<Project>
+    <!-- Imported by the SDK after the project file (BeforeMicrosoftNETSdkTargets), see ThinkMeta.Net.Build.props -->
+    <Import Condition="'$(TM_BeforeMicrosoftNETSdkTargets)' != ''" Project="$(TM_BeforeMicrosoftNETSdkTargets)"/>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == '' AND '$(TargetFrameworks)' == ''">
+        <TargetFramework>$(TM_TargetFramework)</TargetFramework>
+    </PropertyGroup>
+</Project>
