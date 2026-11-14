@@ -18,7 +18,7 @@
         <PackageVersion Include="HtmlAgilityPack" Version="1.13.1" />
         <PackageVersion Include="LibGit2Sharp" Version="0.32.0" />
         <PackageVersion Include="MailKit" Version="4.18.2" />
-        <PackageVersion Include="Markdig" Version="1.5.0" />
+        <PackageVersion Include="Markdig" Version="1.6.0" />
         <PackageVersion Include="Microsoft.AspNetCore.Components" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="$(TM_DotNetVersion)" />
         <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="$(TM_DotNetVersion)" />
@@ -83,7 +83,7 @@
         <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
         <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
         <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.400" />
-        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
+        <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.36.0.15337" />
     </ItemGroup>
 
     <!--
