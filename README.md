@@ -155,8 +155,8 @@ Notes for .NET 11:
 * `Microsoft.Extensions.{Caching,Configuration,DependencyInjection,Diagnostics,FileProviders,Hosting,Logging}.Abstractions`,
   `Microsoft.Extensions.Options` and `Microsoft.Extensions.Primitives` are part of the shared framework. A reference to
   one of them in a `net11.0` project fails with NU1510; remove it.
-* `System.Security.Cryptography.Pkcs` is pinned to a patched version for all projects except WPF/WinForms and Web SDK
-  projects, whose shared frameworks already contain it. Other projects that reference the ASP.NET Core shared framework
+* `System.Security.Cryptography.Pkcs` is pinned to a patched version for all C# projects except WPF/WinForms and Web SDK
+  projects, whose shared frameworks already contain it. C++ projects never get it. Other projects that reference the ASP.NET Core shared framework
   (`<FrameworkReference Include="Microsoft.AspNetCore.App" />`) set `TM_NoPkcsPin` to `true`.
 
 ### Runtime async

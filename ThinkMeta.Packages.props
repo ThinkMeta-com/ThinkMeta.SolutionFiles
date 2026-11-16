@@ -93,8 +93,9 @@
         and fails as NU1510: WPF/WinForms projects (WindowsDesktop) and Web SDK projects (ASP.NET Core, since .NET 11).
         Other projects that reference the ASP.NET Core shared framework (e.g. a class library with
         <FrameworkReference Include="Microsoft.AspNetCore.App" />) set TM_NoPkcsPin to true.
+        Only C# projects get it: C++ projects of a solution that also contains C# projects are restored too and fail as NU1202.
     -->
-    <ItemGroup Condition="'$(TM_NoPkcsPin)' != 'true' AND '$(UseWPF)' != 'true' AND '$(UseWindowsForms)' != 'true' AND '$(UsingMicrosoftNETSdkWeb)' != 'true'">
+    <ItemGroup Condition="'$(MSBuildProjectExtension)' == '.csproj' AND '$(TM_NoPkcsPin)' != 'true' AND '$(UseWPF)' != 'true' AND '$(UseWindowsForms)' != 'true' AND '$(UsingMicrosoftNETSdkWeb)' != 'true'">
         <GlobalPackageReference Include="System.Security.Cryptography.Pkcs" Version="$(TM_DotNetVersion)" />
     </ItemGroup>
 </Project>
